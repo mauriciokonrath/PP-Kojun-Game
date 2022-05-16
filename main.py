@@ -1,6 +1,10 @@
 from matriz import *
+from sudoku import *
 
 
-set(tab, (1,1), 2)
+tab = nova_matriz(9)
+random_set(tab, 5)
 print_matriz(tab)
-print(get(tab, (1,1)))
+print("--"*len(tab))
+resolver(tab)
+print_matriz(tab)
