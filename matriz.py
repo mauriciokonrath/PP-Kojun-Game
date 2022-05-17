@@ -1,49 +1,61 @@
+# matriz.py
+# funções para manipular uma matriz
+
+
 from random import randint
 
 
-def nova_matriz(tamanho: int):
-    mat = [0] * tamanho
-    for i in range(tamanho):
-        mat[i] = [0] * tamanho
+def nova_matriz(n: int) -> list:
+    """Cria uma nova matriz de tamanho NxN"""
+
+    mat = [0] * n
+    for i in range(n):
+        mat[i] = [0] * n
     return mat
 
 
-def random_set(matriz:list, numero_valores: int):
-    if not numero_valores: return
+def procurar_vazio(matriz: list) -> tuple:
+    """retorna a primeira posição vazia (valor = 0) que encontrar em uma matriz"""
+
     for i in range(len(matriz)):
         for j in range(len(matriz)):
-            if (i, j) == (randint(0, len(matriz)), randint(0, len(matriz))):
-                set(matriz, (i,j), randint(1, 9))
+            if matriz[i][j] == 0:
+                return (i, j)
+    return None
 
 
 def print_matriz(matriz: list):
+    """Imprime linha por linha de uma dada matriz"""
+
     linha = ""
     for i in range(len(matriz)):
         for j in range(len(matriz)):
-            valor_atual = matriz[i][j]
-            if valor_atual == 0:
-                linha += " " + str(valor_atual)
-            else:
-                linha += "\033[92m " + str(valor_atual) + '\033[0m'
+            linha += " " + str(matriz[i][j])
         print(linha)
         linha = ""
 
 
+# não funfa direito com o solucionador
+def random_set(matriz: list, n: int):
+    """adiciona n valores aleatórios a uma determinada matriz"""
 
-def random_set(matriz:list, numero_valores: int):
-    if not numero_valores: return
+    if not n: return
     for i in range(len(matriz)):
         for j in range(len(matriz)):
             if (i, j) == (randint(0, len(matriz)), randint(0, len(matriz))):
                 set(matriz, (i,j), randint(1, 9))
-                random_set(matriz, numero_valores-1)
+                random_set(matriz, n-1)
                 return
-    random_set(matriz, numero_valores)
+    random_set(matriz, n)
 
 
 def set(matriz: list, coord: tuple, value: int):
+    """Altera um valor de uma determinada posição"""
+
     matriz[coord[0]][coord[1]] = value
 
 
-def get(matriz: list, coord: tuple):
+def get(matriz: list, coord: tuple) -> int:
+    """Retorna um valor de uma determinada posição"""
+
     return matriz[coord[0]][coord[1]]
