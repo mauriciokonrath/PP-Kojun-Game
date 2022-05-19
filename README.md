@@ -1,2 +1,2 @@
-# PP-CompSudoku-Game
+# PP-Kojun-Game
 Grupo de desenvolvimento do jogo Kojun da Disciplina de Paradigmas de Programação - UFSC
