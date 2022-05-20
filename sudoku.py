@@ -10,7 +10,7 @@ def print_sudoku(matriz: list):
     Imprime na formatação de um jogo de sudoku\n\n
     O valor é impresso:
     -> Vermelho: se ele não é válido
-    -> Verde: se é válido 
+ /home/pet/Desktop/   -> Verde: se é válido 
     """
 
     for i in range(len(matriz)):
@@ -29,7 +29,7 @@ def print_sudoku(matriz: list):
 
 
 def valido(matriz: list, valor: int, coord: tuple) -> bool:
-    """Checa se inserção de determinado valor na posicao escolhida é valida"""
+    """Checa se determinado valor e na posicao escolhida é valida"""
 
     # Check row
     for i in range(len(matriz[0])):
@@ -53,10 +53,19 @@ def valido(matriz: list, valor: int, coord: tuple) -> bool:
     return True
 
 
+def procurar_invalido(matriz: list) -> tuple:
+    """retorna a primeira posição invalida que encontrar em uma matriz de sudoku"""
+
+    for i in range(len(matriz)):
+        for j in range(len(matriz)):
+            if not valido(matriz, matriz[i][j], (i, j)):
+                return (i, j)
+
+
 def resolver(matriz: list) -> bool:
     """Resolve um jogo de Sudoku"""
 
-    achado = procurar_vazio(matriz)
+    achado = procurar_invalido(matriz)
     if not achado: return True
     else: linha, coluna = achado
 

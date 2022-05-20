@@ -14,16 +14,6 @@ def nova_matriz(n: int) -> list:
     return mat
 
 
-def procurar_vazio(matriz: list) -> tuple:
-    """retorna a primeira posição vazia (valor = 0) que encontrar em uma matriz"""
-
-    for i in range(len(matriz)):
-        for j in range(len(matriz)):
-            if matriz[i][j] == 0:
-                return (i, j)
-    return None
-
-
 def print_matriz(matriz: list):
     """Imprime linha por linha de uma dada matriz"""
 
