@@ -1,4 +1,4 @@
-module Print (printMatrix) where
+module Print where
 
 -- a module to print things.
 
