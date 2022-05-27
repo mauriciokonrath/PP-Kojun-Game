@@ -1,17 +1,18 @@
-module Matrix (matrix) where
+module Matrix where
 
 -- a module to manipulate matrixes.
 
-import Generic
+import Utils
+import Colors
 
-type Element = [Int]
+data Element = (Int, String)
 type Matrix = [[Element]]
 type Pos = (Int, Int)
 
 
 -- generates a new ixj 2D matrix.
 newMatrix :: Int -> Int -> Matrix
-newMatrix i j = [ [[0, 0]|x<-[1..j]] | x<-[1..i] ]
+newMatrix i j = [ [[(0, "")]|x<-[1..j]] | x<-[1..i] ]
 
 -- replaces an element in a matrix at a given position.
 setElement :: Matrix -> Pos -> Element -> Matrix

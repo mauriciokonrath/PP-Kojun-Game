@@ -1,4 +1,4 @@
-module Generic (generic) where
+module Utils where
 
 -- a generic module with generic functions :P.
 
