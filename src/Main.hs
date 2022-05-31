@@ -1,5 +1,7 @@
 -- principal
 
+import Matrix
+import Print
 
 main = do
   let m = newMatrix 2 2

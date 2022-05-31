@@ -5,7 +5,7 @@ module Matrix where
 import Utils
 import Colors
 
-data Element = (Int, String)
+data Element = Normal Int String
 type Matrix = [[Element]]
 type Pos = (Int, Int)
 
@@ -16,7 +16,7 @@ newMatrix i j = [ [[(0, "")]|x<-[1..j]] | x<-[1..i] ]
 
 -- replaces an element in a matrix at a given position.
 setElement :: Matrix -> Pos -> Element -> Matrix
-set mat (i, j) e = replace mat j ( replace (mat !! i) j e )
+setElement mat (i, j) e = replace mat j ( replace (mat !! i) j e )
 
 -- returns an element in a matrix at a given position.
 getElement :: Matrix -> Pos -> Element
