@@ -2,6 +2,7 @@
 
 import Matrix
 import Print
+import Solver
 --
 -- mapF :: [[Int]] -> (Int -> Int) -> [[Int]]
 -- mapF mat f = map (map f) mat
@@ -11,7 +12,7 @@ main = do
   -- printMatrix m
   -- let m = mapMatrix m (add)
   -- printMatrix m
-  printMatrix (mapMatrix m (setElementRegion))
+  printMatrix (solve (mapMatrix m (setElementRegion)))
 
   -- printMatrix m
   -- mapMatrix (setRegion) m

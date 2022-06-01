@@ -22,6 +22,17 @@ newMatrix :: Int -> Int -> Matrix
 newMatrix r c = [ [ (Element 0 0 i j) | j<-[0..c-1]] | i<-[0..r-1] ]
 
 
+compareElement :: [Element] -> [Element] -> Bool
+compareElement [] [] = True
+compareElement (ex:rowx) (e:row) | (getValue ex) == (getValue e) = compareElement rowx row
+                                 | otherwise = False
+
+compareMatrix :: Matrix -> Matrix -> Bool
+compareMatrix [] [] = True
+compareMatrix (rowx:matx) (row:mat) | (compareElement rowx row) = compareMatrix matx mat
+                                    | otherwise = False
+
+
 mapRow :: [Element] -> (Element -> Element) -> [Element]
 mapRow [] f = []
 mapRow (e:row) f = f e : mapRow row f

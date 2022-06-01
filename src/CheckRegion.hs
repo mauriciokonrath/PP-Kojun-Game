@@ -7,7 +7,8 @@ import Matrix
 -- checa se elemento existe na linha
 inRow :: [Element] -> Element -> Bool
 inRow [] candidate  = False
-inRow (e:row) candidate | ((getRegion candidate) == (getRegion e)) and ((getValue candidate) == (getValue e)) = True
+inRow (e:row) candidate | ((getRegion candidate) == (getRegion e)) &&
+                            ((getValue candidate) == (getValue e)) = True
                         | otherwise = inRow row candidate
 
 -- Checa se elemento ja existe na regiao
