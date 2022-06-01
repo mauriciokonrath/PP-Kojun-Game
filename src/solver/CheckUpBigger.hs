@@ -4,7 +4,7 @@ module CheckUpDown (verifyUp, verifyUpBigger) where
 verifyUp:: -- Decidir entradas
 verifyUp mat =
 
--- Verifica se ja tem o maior valor na maior pos do quadrante
+-- Verifica caso duas cedulas sejam verticalmente adjacentes o maior tem que estar na de cima
 verifyUpBigger:: -- Decidir entradas
 verifyUpBigger =
 
