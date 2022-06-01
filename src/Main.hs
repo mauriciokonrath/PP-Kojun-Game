@@ -4,6 +4,6 @@ import Matrix
 import Print
 
 main = do
-  let m = newMatrix 2 2
-  print(m)
-  print(set m (1,1) [2, ""])
+  let m = newMatrix 10 10
+  mapMatrix m (+3)
+  printMatrix m

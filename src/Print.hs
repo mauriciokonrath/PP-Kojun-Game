@@ -8,7 +8,7 @@ import Matrix
 -- converts a list to a formatted string
 listToString :: [Element] -> String
 listToString [] = "\n"
-listToString (a:b) = ( (a !! 1) ++ show (a !! 0)) ++ " " ++ (listToString b)
+listToString (e:l) = ( (getColor e) ++ show (getValue e)) ++ " " ++ (listToString l)
 
 -- converts a matrix to a single formatted string
 matrixToString :: Matrix -> String
