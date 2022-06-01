@@ -7,11 +7,12 @@ import Print
 -- mapF mat f = map (map f) mat
 
 main = do
-  let m = newMatrix 5 5
-  printMatrix m
-  let m = mapMatrix m (add)
+  let m = newMatrix 6 6
+  -- printMatrix m
+  -- let m = mapMatrix m (add)
+  -- printMatrix m
+  printMatrix (mapMatrix m (setElementRegion))
 
-  print( show (getValue (( m !! 0) !! 0)) )
   -- printMatrix m
   -- mapMatrix (setRegion) m
   -- printMatrix m

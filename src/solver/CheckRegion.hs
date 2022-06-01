@@ -1,13 +1,17 @@
 module CheckRegion where
 
--- Checa no quadrante se ha numeros repedidos
-checkRegion:: Matrix -> Int -> Matrix
-checkRegion mat region =
-    -- Checar regiao
 
-    {- if (((mat !! i) !! j) getRegion) == region then
-        -- Logica de verificação de regiao
-        if verifyUp then -- verifica se é a maior pos
-            if verifyUpBigger then -- verifica se ja foi colocar o maior valor na maior pos
-                (((mat !! i) !! j) setValue 6) -- seta o maior valor possivel para esta pos
-        else -}
+import Matrix
+
+
+-- checa se elemento existe na linha
+inRow :: [Element] -> Element -> Bool
+inRow [] candidate  = False
+inRow (e:row) candidate | ((getRegion candidate) == (getRegion e)) and ((getValue candidate) == (getValue e)) = True
+                        | otherwise = inRow row candidate
+
+-- Checa se elemento ja existe na regiao
+existsInRegion :: Matrix -> Element -> Bool
+existsInRegion [] candidate = False
+existsInRegion (row:mat) candidate | inRow row candidate = True
+                                   | otherwise = existsInRegion mat candidate
