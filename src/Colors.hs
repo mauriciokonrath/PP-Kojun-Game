@@ -6,10 +6,11 @@ translateColor :: Integer -> String
 translateColor colorId = (colors !! ( fromIntegral colorId ))
 
 
-colors = [red, green, yellow, blue, magenta, cyan]
+colors = [red, green, yellow, blue, magenta, cyan, defaul]
 
 endColor  =    "\ESC[0m"
 
+defaul    =    "\ESC[1;0m"
 red       =    "\ESC[1;31m"
 green     =    "\ESC[1;32m"
 yellow    =    "\ESC[1;33m"

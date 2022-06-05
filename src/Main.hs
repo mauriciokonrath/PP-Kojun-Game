@@ -3,6 +3,7 @@
 import Matrix
 import Print
 import Solver
+import CheckAdjacencies
 --
 -- mapF :: [[Int]] -> (Int -> Int) -> [[Int]]
 -- mapF mat f = map (map f) mat
@@ -12,7 +13,7 @@ main = do
   -- printMatrix m
   -- let m = mapMatrix m (add)
   -- printMatrix m
-  printMatrix (solve (mapMatrix m (setElementRegion)))
+  printMatrix (solve (mapMatrix (setElement m (1, 1) (Element 5 0 0 0)) setElementRegion) )
 
   -- printMatrix m
   -- mapMatrix (setRegion) m

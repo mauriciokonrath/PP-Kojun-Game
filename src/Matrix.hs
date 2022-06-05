@@ -11,8 +11,8 @@ data Element = Element {
     getRegion :: Integer,
     getI :: Int,
     getJ :: Int
-}
--- type ElementContent = Int | String
+} deriving Eq
+
 type Matrix = [[Element]]
 type Pos = (Int, Int)
 
@@ -22,14 +22,12 @@ newMatrix :: Int -> Int -> Matrix
 newMatrix r c = [ [ (Element 0 0 i j) | j<-[0..c-1]] | i<-[0..r-1] ]
 
 
-compareElement :: [Element] -> [Element] -> Bool
-compareElement [] [] = True
-compareElement (ex:rowx) (e:row) | (getValue ex) == (getValue e) = compareElement rowx row
-                                 | otherwise = False
+compareRow :: [Element] -> [Element] -> Bool
+compareRow rowx row = ( rowx == row )
 
 compareMatrix :: Matrix -> Matrix -> Bool
 compareMatrix [] [] = True
-compareMatrix (rowx:matx) (row:mat) | (compareElement rowx row) = compareMatrix matx mat
+compareMatrix (rowx:matx) (row:mat) | (compareRow rowx row) = compareMatrix matx mat
                                     | otherwise = False
 
 

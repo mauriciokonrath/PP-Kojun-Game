@@ -15,12 +15,15 @@ searchInRow mat (e:row) | not (valid mat e) = ((getI e), (getJ e))
                         | otherwise = searchInRow mat row
 
 searchInvalid :: Matrix -> Matrix -> Pos
+searchInvalid matx [] = (-1, -1)
 searchInvalid matx (row:mat) | (searchInRow matx row) == (-1, -1) = (-1, -1)
                              | otherwise = searchInvalid matx mat
 
+emptyElement :: Element -> Bool
+emptyElement e = ((getValue e) == 0)
+
 valid :: Matrix -> Element -> Bool
-valid mat e | (hasEqAdjacenct mat e) = False
-            | (existsInRegion mat e) = False
+valid mat e | (hasEqAdjacenct mat e) || (existsInRegion mat e) || (emptyElement e) = False
             | otherwise = True
 
 tryEveryPossible :: Matrix -> Pos -> Int -> Matrix
@@ -34,5 +37,5 @@ tryCandidates mat (-1, -1) = mat
 tryCandidates mat pos = tryEveryPossible mat pos (lenRegion mat (getElement mat pos))
 
 solve :: Matrix -> Matrix
-solve mat | compareMatrix (tryCandidates mat (searchInvalid mat mat)) mat = mat
+solve mat | ( compareMatrix (tryCandidates mat (searchInvalid mat mat)) mat ) = mat
           | otherwise = solve mat
