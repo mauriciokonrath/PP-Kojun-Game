@@ -38,23 +38,6 @@ compareMatrix (rowx:matx) (row:mat) | (compareRow rowx row) = compareMatrix matx
                                     | otherwise = False
 
 
--- -- funcao map versao matrizes (lista de listas) --
--- -- map de linhas
--- mapRow :: [Element] -> (Element -> Element) -> [Element]
--- mapRow [] f = []
--- mapRow (e:row) f = f e : mapRow row f
---
--- -- map da matriz em si
--- mapMatrix :: Matrix -> (Element -> Element) -> Matrix
--- mapMatrix [] f = []
--- mapMatrix (row:mat) f = mapRow row f : mapMatrix mat f
-
---
--- -- seta regiao de um elemento com base no mapa de regioes (input)
--- setElementRegion :: Element -> Element
--- setElementRegion e = Element (getValue e) ((CONFIG !! (getI e)) !! (getJ e)) (getI e) (getJ e)
-
-
 -- retorna um elemento em uma posicao especifica
 getElement :: Matrix -> Pos -> Element
 getElement mat (i, j) = (mat !! i) !! j
